@@ -1,0 +1,4 @@
+management.endpoints.web.exposure.include=health,info,beans
+#management.endpoints.beans.cache.time-to-live=10s
+management.endpoints.web.exposure.include=*
+#spring.datasource.password

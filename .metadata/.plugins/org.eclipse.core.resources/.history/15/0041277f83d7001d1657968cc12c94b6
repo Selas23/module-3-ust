@@ -1,0 +1,18 @@
+package com.ust.ioc;
+
+public interface Connection {
+	
+	try {
+		java.sql.Connection.con;
+		DriverManager.getConnection(url,dbusername,dbpassword);
+	}
+	catch(SQL Exception e){
+		e.printStack Trace();
+		
+	}
+	system.out.println("getConnection called....");
+	return new DBConnection();
+	
+	
+	
+}

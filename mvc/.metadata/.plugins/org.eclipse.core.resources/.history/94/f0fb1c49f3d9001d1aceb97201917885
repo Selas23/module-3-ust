@@ -1,0 +1,84 @@
+package com.ust.rest.repository;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.springframework.stereotype.Repository;
+
+import com.ust.rest.resource.Product;
+
+@Repository
+public class ProductRepository {
+
+	private ArrayList<Product> productCache = new ArrayList<>();
+//C-Create
+	public boolean addProduct(Product product) {
+		if (productCache.add(product))
+			return true;
+		else
+			return false;}
+
+	public ProductRepository() {
+		// TODO Auto-generated constructor stub
+		Product p1 = new Product();
+		p1.setProductid(101);
+		p1.setName("Laptop");
+		p1.setPrice(new BigDecimal(180000));
+		p1.setQty(5);
+		p1.setDescription("Macretina Eye");
+		productCache.add(p1);
+
+		Product p2 = new Product();
+		p2.setProductid(102);
+		p2.setName("Tablet");
+		p2.setPrice(new BigDecimal(35000));
+		p2.setQty(10);
+		p2.setDescription("Samsung mav view");
+		productCache.add(p2);
+
+		Product p3 = new Product();
+		p3.setProductid(103);
+		p3.setName("Mobile");
+		p3.setPrice(new BigDecimal(175000));
+		p3.setQty(7);
+		p3.setDescription("Iphone");
+		productCache.add(p3);
+
+		Product p4 = new Product();
+		p4.setProductid(104);
+		p4.setName("Television");
+		p4.setPrice(new BigDecimal(35000));
+		p4.setQty(7);
+		p4.setDescription("Sony Bravo 75\"");
+		productCache.add(p4);
+
+		Product p5 = new Product();
+		p5.setProductid(105);
+		p5.setName("Airconditioner");
+		p5.setPrice(new BigDecimal(44500));
+		p5.setQty(15);
+		p5.setDescription("Samsung Xcool");
+		productCache.add(p5);
+
+	}// R- Retrieve
+
+	public Product getProduct(long productId) {
+		Iterator<Product> iter = productCache.iterator();
+		Product product = null;
+		while (iter.hasNext()) {
+			product = iter.next();
+			if (product.getProductid() == productId)
+				break;
+		}
+		if (product != null)
+			return product;
+		else
+			return null;
+
+	}
+	public ArrayList<Product> getProducts(){
+		return productCache;
+	}
+	
+}
